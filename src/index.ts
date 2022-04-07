@@ -10,7 +10,7 @@ async function main(){
     try{
         const app = createApp();
         app.listen(PORT, ()=> console.log(`Running on Port ${PORT}`));
-        console.log(`discord token: ${DISCORD_API_URL}`)
+        console.log(`discord token: ${process.env.DISCORD_CLIENT_ID}`)
     } catch(err){
         console.log(err)
     }
