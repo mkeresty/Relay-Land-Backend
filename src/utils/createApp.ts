@@ -17,9 +17,10 @@ export function createApp(): Express {
 
     // enable cors
     app.use(cors({
-        origin: ['https://joyful-pastelito-d4f9a3.netlify.app/'],
+        origin: ['https://www.relayland.com/'],
         credentials: true,
     }));
+    console.log("cors enabled");
 
     // enable sessions
     app.use(session({
