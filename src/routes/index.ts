@@ -9,7 +9,6 @@ router.use('/auth', authRouter);
 
 router.use('/guilds', guildsRouter);
 
-router.use('setup')
 
 
 
