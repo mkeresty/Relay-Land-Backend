@@ -20,7 +20,14 @@ const UserSchema = new Schema<User>({
     refreshToken: {
         type: mongoose.SchemaTypes.String,
         required: true
-    }
-});
+    },
+    
+},
+ {
+    writeConcern: {
+       w: 'majority',
+       j: true,
+       wtimeout: 1000
+ }});
 
 export default mongoose.model('users', UserSchema);
