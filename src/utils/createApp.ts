@@ -17,7 +17,7 @@ export function createApp(): Express {
 
     // enable cors
     app.use(cors({
-        origin: ['http://localhost:3000'],
+        origin: ['https://joyful-pastelito-d4f9a3.netlify.app/'],
         credentials: true,
     }));
 
@@ -29,7 +29,7 @@ export function createApp(): Express {
         cookie: {
             maxAge: 6000 * 60 * 24 * 7,
         },
-        store: store.create({ mongoUrl: 'mongodb://localhost/discord_dashboard'}),
+        store: store.create({ mongoUrl: 'ongodb+srv://mkeresty:wwXuyfLz6Dqk3ZWU@mern.yxg7v.mongodb.net/discord_dashboard?retryWrites=true&w=majority'}),
     }));
 
     // enable passport

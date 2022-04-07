@@ -17,7 +17,7 @@ router.get('/discord', passport.authenticate('discord'), (req,res)=>{
 
 router.get('/discord/redirect', passport.authenticate('discord'), async (req,res)=>{
     //res.redirect('http://localhost:3000/menu');
-    res.redirect('http://localhost:3000/menu');
+    res.redirect('https://joyful-pastelito-d4f9a3.netlify.app/menu');
 }
 );
 
