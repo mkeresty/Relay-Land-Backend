@@ -4,6 +4,7 @@ import cors from 'cors';
 import session from 'express-session';
 import passport from 'passport';
 import routes from '../routes';
+const path = require('path');
 import store from 'connect-mongo';
 
 config();
@@ -11,6 +12,9 @@ require('../strategies/discord');
 
 export function createApp(): Express {
     const app = express();
+
+    //app.use(express.static(path.join(__dirname, 'client/build')));
+
     // enable parsing middleware for requests
     app.use(express.json());
     app.use(express.urlencoded());
@@ -39,6 +43,6 @@ export function createApp(): Express {
 
     app.use((req, res, next) => setTimeout(() => next(), 800));
 
-    app.use('/api', routes);
+    app.use('/routes', routes);
     return app;
 }
