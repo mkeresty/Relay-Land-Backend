@@ -41,10 +41,10 @@ export function createApp(): Express {
     app.use(passport.initialize());
     app.use(passport.session());
 
-    const authRoutes = require('./routes/auth/index.ts');
+    const authRoutes = require('../routes/auth/index.ts');
     app.use('/auth', authRoutes);
 
-    const guildsRoutes = require('./routes/guilds/index.ts');
+    const guildsRoutes = require('../routes/guilds/index.ts');
     app.use('/guilds', guildsRoutes);
 
     app.get("/", (req, res) => {
