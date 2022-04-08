@@ -50,9 +50,7 @@ export function createApp(): Express {
     // app.get("/", (req, res) => {
     //     res.send("responded")
     // });
-    app.get('/*', function (req, res) {
-        res.sendFile(path.join(__dirname, 'build', './index.html'));
-      });
+
 
     app.use((req, res, next) => setTimeout(() => next(), 800));
 
