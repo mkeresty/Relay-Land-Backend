@@ -41,15 +41,15 @@ export function createApp(): Express {
     app.use(passport.initialize());
     app.use(passport.session());
 
-    const authRoutes = require('../routes/auth/index.ts');
-    app.use('/auth', authRoutes);
+    // const authRoutes = require('../routes/auth/index.ts');
+    // app.use('/auth', authRoutes);
 
-    const guildsRoutes = require('../routes/guilds/index.ts');
-    app.use('/guilds', guildsRoutes);
+    // const guildsRoutes = require('../routes/guilds/index.ts');
+    // app.use('/guilds', guildsRoutes);
 
-    app.get("/", (req, res) => {
-        res.send("responded")
-    });
+    // app.get("/", (req, res) => {
+    //     res.send("responded")
+    // });
 
     app.use((req, res, next) => setTimeout(() => next(), 800));
 
