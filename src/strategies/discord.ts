@@ -4,16 +4,16 @@ import { VerifyCallback } from 'passport-oauth2';
 import {User } from '../database/schemas';
 
 passport.serializeUser((user: any, done)=> {
-    //console.log(`user is ${user}`);
+    console.log(`user is `);
     return done(null, user.id);
     
 });
 
 passport.deserializeUser(async (id: string, done)=> {
     try{
-        console.log(`id is ${id}`);
+        //console.log(`id is ${id}`);
         const user = await User.findById(id)
-        console.log(`deserialized ${user}`);
+        console.log(`deserialized `);
         return user ? done(null, user) : done(null, null);
     } catch (err) {
         console.log(err)
@@ -34,6 +34,7 @@ async (accessToken: string, refreshToken: string, profile: Profile, done: Verify
     //console.log(profile);
     const { id: discordId } = profile;
     try {
+        console.log('try');
         const existingUser = await User.findOneAndUpdate(
             { discordId }, 
             { accessToken, refreshToken },
