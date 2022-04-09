@@ -15,7 +15,7 @@ router.get('/discord', passport.authenticate('discord'), (req,res)=>{
 }
 );
 
-router.get('/discord/redirect2', passport.authenticate('discord'), async (req,res)=>{
+router.get('/discord/redirect', passport.authenticate('discord'), async (req,res)=>{
     console.log("leaving redirection");
     //res.redirect('http://localhost:3000/menu');
     res.redirect('https://www.relayland.com/menu');
