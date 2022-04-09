@@ -12,6 +12,7 @@ passport.serializeUser((user: any, done)=> {
 passport.deserializeUser(async (id: string, done)=> {
     try{
         const user = await User.findById(id)
+        console.log(`deserialized ${user}`);
         return user ? done(null, user) : done(null, null);
     } catch (err) {
         console.log(err)
@@ -29,7 +30,7 @@ passport.use(new Strategy({
 async (accessToken: string, refreshToken: string, profile: Profile, done: VerifyCallback
     )=> {
     console.log(accessToken, refreshToken);
-    console.log(profile);
+    //console.log(profile);
     const { id: discordId } = profile;
     try {
         const existingUser = await User.findOneAndUpdate(
@@ -40,7 +41,9 @@ async (accessToken: string, refreshToken: string, profile: Profile, done: Verify
         if (existingUser) return done(null, existingUser);
     
         const newUser = new User({ discordId, accessToken, refreshToken });
+        console.log(`new user is ${newUser}`);
         const savedUser = await newUser.save();
+        console.log('saved');
         return done(null, savedUser);
     } catch(err) {
         console.log(err);
