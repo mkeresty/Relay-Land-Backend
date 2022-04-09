@@ -4,7 +4,9 @@ import { VerifyCallback } from 'passport-oauth2';
 import {User } from '../database/schemas';
 
 passport.serializeUser((user: any, done)=> {
+    console.log(`user is ${user}`);
     return done(null, user.id);
+    
 });
 
 passport.deserializeUser(async (id: string, done)=> {
@@ -27,7 +29,7 @@ passport.use(new Strategy({
 async (accessToken: string, refreshToken: string, profile: Profile, done: VerifyCallback
     )=> {
     console.log(accessToken, refreshToken);
-    //console.log(profile);
+    console.log(profile);
     const { id: discordId } = profile;
     try {
         const existingUser = await User.findOneAndUpdate(

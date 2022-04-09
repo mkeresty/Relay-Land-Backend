@@ -21,7 +21,7 @@ export function createApp(): Express {
 
     // enable cors
     app.use(cors({
-        origin: ['https://www.relayland.com/'],
+        origin: ['https://www.relayland.com'],
         credentials: true,
     }));
     console.log("cors enabled");
@@ -39,7 +39,9 @@ export function createApp(): Express {
 
     // enable passport
     app.use(passport.initialize());
+    console.log('initialized');
     app.use(passport.session());
+    console.log('session');
 
     // const authRoutes = require('../routes/auth/index.ts');
     // app.use('/auth', authRoutes);
