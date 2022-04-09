@@ -26,7 +26,7 @@ passport.use(new Strategy({
 }, 
 async (accessToken: string, refreshToken: string, profile: Profile, done: VerifyCallback
     )=> {
-    //console.log(accessToken, refreshToken);
+    console.log(accessToken, refreshToken);
     //console.log(profile);
     const { id: discordId } = profile;
     try {
