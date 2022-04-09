@@ -2,7 +2,7 @@
   "name": "next-dashboard-api",
   "version": "1.0.0",
   "engines": {
-    "node": "14.x"
+    "node": "16.6"
   },
   "main": "index.js",
   "license": "MIT",
