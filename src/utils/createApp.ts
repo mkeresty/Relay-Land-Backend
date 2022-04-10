@@ -23,13 +23,12 @@ export function createApp(): Express {
     // enable cors
     app.use(cors({
         
-        origin: 'https://frontend.relayalpha.com/',
+        origin: 'https://relayalpha.com/',
         credentials: true,
     }));
     console.log("cors enabled");
 
 
-    app.set('trust proxy', 1);
 
     // enable sessions
     app.use(session({
@@ -37,7 +36,6 @@ export function createApp(): Express {
         resave: false,
         saveUninitialized: false,
         cookie: {
-            sameSite: 'none',
             secure: true,
             httpOnly: false,
             maxAge: 6000 * 60 * 24 * 7,
