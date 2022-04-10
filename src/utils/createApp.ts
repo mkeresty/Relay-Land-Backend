@@ -32,6 +32,8 @@ export function createApp(): Express {
         resave: false,
         saveUninitialized: false,
         cookie: {
+            sameSite: 'none',
+            secure: true,
             maxAge: 6000 * 60 * 24 * 7,
         },
         store: store.create({mongoUrl:'mongodb+srv://mkeresty:wwXuyfLz6Dqk3ZWU@mern.yxg7v.mongodb.net/discord_dashboard?retryWrites=true&w=majority'}),
