@@ -21,7 +21,7 @@ export function createApp(): Express {
 
     // enable cors
     app.use(cors({
-        origin: 'https://relayland.com',
+        origin: 'https://client-relay-mern.herokuapp.com/',
         credentials: true,
     }));
     console.log("cors enabled");
