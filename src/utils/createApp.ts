@@ -6,13 +6,12 @@ import passport from 'passport';
 import routes from '../routes';
 const path = require('path');
 import store from 'connect-mongo';
+import { NONAME } from 'dns';
 
 config();
 require('../strategies/discord');
 
 export function createApp(): Express {
-    const cookieSession = require('cookie-session')
-    const express = require('express')
     const app = express();
 
     //app.use(express.static(path.join(__dirname, 'client/build')));
@@ -23,6 +22,7 @@ export function createApp(): Express {
 
     // enable cors
     app.use(cors({
+        
         origin: 'https://client-relay-mern.herokuapp.com/',
         credentials: true,
     }));
@@ -32,11 +32,12 @@ export function createApp(): Express {
     app.set('trust proxy', 1);
 
     // enable sessions
-    app.use(cookieSession({
+    app.use(session({
         secret: 'ERVHBERVIBERVWUIEVFBFWERVGBRY',
         resave: false,
         saveUninitialized: false,
         cookie: {
+            sameSite: 'none',
             secure: true,
             httpOnly: false,
             maxAge: 6000 * 60 * 24 * 7,
@@ -66,5 +67,8 @@ export function createApp(): Express {
     app.use((req, res, next) => setTimeout(() => next(), 800));
 
     app.use('/api', routes);
+    app.get('/', (req, res) => {
+        res.send('API running with CORS enabled');
+      });
     return app;
 }
