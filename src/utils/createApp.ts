@@ -34,6 +34,7 @@ export function createApp(): Express {
     app.use(session({
         secret: 'ERVHBERVIBERVWUIEVFBFWERVGBRY',
         resave: false,
+        proxy: true,
         saveUninitialized: false,
         cookie: {
             secure: true,
@@ -42,6 +43,11 @@ export function createApp(): Express {
         },
         store: store.create({mongoUrl:'mongodb+srv://mkeresty:wwXuyfLz6Dqk3ZWU@mern.yxg7v.mongodb.net/discord_dashboard?retryWrites=true&w=majority'}),
     }));
+
+    app.use((req, res, next)=> {
+        req.headers['x-forwarded-proto'] = "https";
+        next();
+    });
 
     
 
