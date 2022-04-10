@@ -21,7 +21,7 @@ export function createApp(): Express {
 
     // enable cors
     app.use(cors({
-        origin: true,
+        origin: 'https://relayland.com',
         credentials: true,
     }));
     console.log("cors enabled");
@@ -31,6 +31,7 @@ export function createApp(): Express {
         secret: 'ERVHBERVIBERVWUIEVFBFWERVGBRY',
         resave: true,
         saveUninitialized: false,
+        proxy: true,
         cookie: {
             sameSite: 'none',
             secure: true,
