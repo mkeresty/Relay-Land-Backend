@@ -38,6 +38,7 @@ export function createApp(): Express {
         saveUninitialized: false,
         cookie: {
             secure: true,
+            sameSite: 'lax',
             httpOnly: false,
             maxAge: 6000 * 60 * 24 * 7,
         },
