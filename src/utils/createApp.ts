@@ -38,17 +38,12 @@ export function createApp(): Express {
         saveUninitialized: false,
         cookie: {
             secure: true,
-            sameSite: 'lax',
+            sameSite: true,
             httpOnly: false,
             maxAge: 6000 * 60 * 24 * 7,
         },
         store: store.create({mongoUrl:'mongodb+srv://mkeresty:wwXuyfLz6Dqk3ZWU@mern.yxg7v.mongodb.net/discord_dashboard?retryWrites=true&w=majority'}),
     }));
-
-    app.use((req, res, next)=> {
-        req.headers['x-forwarded-proto'] = "https";
-        next();
-    });
 
     
 
