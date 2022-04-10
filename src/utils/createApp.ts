@@ -29,7 +29,7 @@ export function createApp(): Express {
     // enable sessions
     app.use(session({
         secret: 'ERVHBERVIBERVWUIEVFBFWERVGBRY',
-        resave: false,
+        resave: true,
         saveUninitialized: false,
         cookie: {
             sameSite: 'none',
