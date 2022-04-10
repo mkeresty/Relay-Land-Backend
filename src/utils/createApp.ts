@@ -11,8 +11,8 @@ config();
 require('../strategies/discord');
 
 export function createApp(): Express {
-    var cookieSession = require('cookie-session')
-    var express = require('express')
+    const cookieSession = require('cookie-session')
+    const express = require('express')
     const app = express();
 
     //app.use(express.static(path.join(__dirname, 'client/build')));
