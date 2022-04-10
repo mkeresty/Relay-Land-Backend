@@ -18,7 +18,7 @@ router.get('/discord', passport.authenticate('discord'), (req,res)=>{
 router.get('/discord/redirect', passport.authenticate('discord'), async (req,res)=>{
     console.log("leaving redirection");
     //res.redirect('http://localhost:3000/menu');
-    res.redirect('https://client-relay-mern.herokuapp.com/menu');
+    res.redirect('https://frontend.relayalpha.com/menu');
 }
 );
 
