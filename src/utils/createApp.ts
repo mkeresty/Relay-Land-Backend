@@ -21,7 +21,7 @@ export function createApp(): Express {
 
     // enable cors
     app.use(cors({
-        origin: ['https://www.relayland.com'],
+        origin: true,
         credentials: true,
     }));
     console.log("cors enabled");
@@ -34,6 +34,7 @@ export function createApp(): Express {
         cookie: {
             sameSite: 'none',
             secure: true,
+            httpOnly: false,
             maxAge: 6000 * 60 * 24 * 7,
         },
         store: store.create({mongoUrl:'mongodb+srv://mkeresty:wwXuyfLz6Dqk3ZWU@mern.yxg7v.mongodb.net/discord_dashboard?retryWrites=true&w=majority'}),
