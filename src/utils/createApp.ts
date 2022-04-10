@@ -39,6 +39,8 @@ export function createApp(): Express {
         store: store.create({mongoUrl:'mongodb+srv://mkeresty:wwXuyfLz6Dqk3ZWU@mern.yxg7v.mongodb.net/discord_dashboard?retryWrites=true&w=majority'}),
     }));
 
+    app.set('trust proxy', 1);
+
     // enable passport
     app.use(passport.initialize());
     console.log('initialized');
