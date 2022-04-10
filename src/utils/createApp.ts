@@ -11,6 +11,8 @@ config();
 require('../strategies/discord');
 
 export function createApp(): Express {
+    var cookieSession = require('cookie-session')
+    var express = require('express')
     const app = express();
 
     //app.use(express.static(path.join(__dirname, 'client/build')));
@@ -26,8 +28,11 @@ export function createApp(): Express {
     }));
     console.log("cors enabled");
 
+
+    app.set('trust proxy', 1);
+
     // enable sessions
-    app.use(session({
+    app.use(cookieSession({
         secret: 'ERVHBERVIBERVWUIEVFBFWERVGBRY',
         resave: false,
         saveUninitialized: false,
@@ -39,7 +44,7 @@ export function createApp(): Express {
         store: store.create({mongoUrl:'mongodb+srv://mkeresty:wwXuyfLz6Dqk3ZWU@mern.yxg7v.mongodb.net/discord_dashboard?retryWrites=true&w=majority'}),
     }));
 
-    app.set('trust proxy', 1);
+    
 
     // enable passport
     app.use(passport.initialize());
