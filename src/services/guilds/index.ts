@@ -44,7 +44,7 @@ dClient.on('messageReactionAdd', async (reaction:any, user: { id: any; }) => {
 });
 
 export async function sendowner(id: string){
-    let guild = await dClient.guilds.cache.get('895751401660121169');
+    let guild = await dClient.guilds.cache.get('895749336938463295');
     //let channel = await guild.channels.cache.get('895749337370488924');
     //let duser = await dClient.users.fetch('699837589259288576');
     //let dmember = await guild.member(duser);
@@ -71,7 +71,7 @@ export async function sendowner(id: string){
 }
 
 export async function sendminnow(id: string){
-    let guild = await dClient.guilds.cache.get('895751401660121169');
+    let guild = await dClient.guilds.cache.get('895749336938463295');
     //let channel = await guild.channels.cache.get('895749337370488924');
     //let duser = await dClient.users.fetch('699837589259288576');
     //let dmember = await guild.member(duser);
@@ -95,7 +95,7 @@ export async function sendminnow(id: string){
 }
 
 export async function sendwhale(id: string){
-    let guild = await dClient.guilds.cache.get('895751401660121169');
+    let guild = await dClient.guilds.cache.get('895749336938463295');
     //let channel = await guild.channels.cache.get('895749337370488924');
     //let duser = await dClient.users.fetch('699837589259288576');
     //let dmember = await guild.member(duser);
