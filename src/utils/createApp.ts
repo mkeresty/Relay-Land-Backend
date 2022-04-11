@@ -21,7 +21,7 @@ export function createApp(): Express {
     app.use(express.urlencoded());
 
     app.disable("X-Powered-By");
-    
+
     app.set("trust proxy", 1);
 
     // enable cors
@@ -51,6 +51,7 @@ export function createApp(): Express {
         cookie: {
             domain: ".relayalpha.com",
             sameSite: "none",
+            secure: true,
             httpOnly: false,
             maxAge: 6000 * 60 * 24 * 7,
         },
