@@ -23,7 +23,7 @@ export function createApp(): Express {
     // enable cors
     app.use(cors({
         
-        origin: 'https://relayalpha.com/',
+        origin: ['https://relayalpha.com','http://localhost:3000'],
         credentials: true,
     }));
     console.log("cors enabled");
@@ -34,12 +34,8 @@ export function createApp(): Express {
     app.use(session({
         secret: 'ERVHBERVIBERVWUIEVFBFWERVGBRY',
         resave: false,
-        proxy: true,
         saveUninitialized: false,
         cookie: {
-            secure: true,
-            sameSite: true,
-            httpOnly: false,
             maxAge: 6000 * 60 * 24 * 7,
         },
         store: store.create({mongoUrl:'mongodb+srv://mkeresty:wwXuyfLz6Dqk3ZWU@mern.yxg7v.mongodb.net/discord_dashboard?retryWrites=true&w=majority'}),
@@ -64,7 +60,7 @@ export function createApp(): Express {
     // });
 
 
-    app.use((req, res, next) => setTimeout(() => next(), 800));
+    app.use((req, res, next) => setTimeout(() => next(), 1500));
 
     app.use('/api', routes);
     app.get('/', (req, res) => {

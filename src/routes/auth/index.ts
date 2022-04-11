@@ -4,7 +4,8 @@ import passport from 'passport';
 import { User } from "../../database/schemas";
 import { bigtest2, bigtest3, bigtest4, getUser, sendminnow, sendowner, sendwhale } from "../../services/guilds";
 
-
+//const FRONTEND_URL= 'http://localhost:3000';
+const FRONTEND_URL= 'https://frontend.relayalpha.com'
 
 const router = Router();
 
@@ -18,7 +19,7 @@ router.get('/discord', passport.authenticate('discord'), (req,res)=>{
 router.get('/discord/redirect', passport.authenticate('discord'), async (req,res)=>{
     console.log("leaving redirection");
     //res.redirect('http://localhost:3000/menu');
-    res.redirect('https://frontend.relayalpha.com/menu');
+    res.redirect(`${FRONTEND_URL}/api`);
 }
 );
 
