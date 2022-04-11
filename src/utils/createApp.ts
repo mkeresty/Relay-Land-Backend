@@ -44,7 +44,7 @@ export function createApp(): Express {
 
     // enable sessions
     app.use(session({
-        name: "admin",
+        name: "connect.sid",
         secret: 'ERVHBERVIBERVWUIEVFBFWERVGBRY',
         resave: false,
         saveUninitialized: false,
