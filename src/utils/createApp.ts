@@ -20,10 +20,20 @@ export function createApp(): Express {
     app.use(express.json());
     app.use(express.urlencoded());
 
+    app.use((req, res, next) => {
+        res.setHeader('Access-Control-Allow-Credentials', 'true');
+        res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+        res.setHeader('Access-Control-Allow-Origin', 'https://frontend.relayalpha.com');
+        if (req.method === 'OPTIONS') {
+          return res.sendStatus(200);
+        }
+        next();
+      });
+
     // enable cors
     app.use(cors({
         
-        origin: ['https://relayalpha.com','http://localhost:3000'],
+        origin: ['https://frontend.relayalpha.com','http://localhost:3000'],
         credentials: true,
     }));
     console.log("cors enabled");
