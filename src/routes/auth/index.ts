@@ -20,7 +20,7 @@ router.get('/discord/redirect', passport.authenticate('discord'), async (req,res
     console.log("leaving redirection");
     //res.redirect('http://localhost:3000/menu');
     console.log(res.cookie);
-    res.redirect(`${FRONTEND_URL}/api`);
+    res.redirect(`${FRONTEND_URL}/menu`);
 }
 );
 
