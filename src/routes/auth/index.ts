@@ -19,13 +19,14 @@ router.get('/discord', passport.authenticate('discord'), (req,res)=>{
 router.get('/discord/redirect', passport.authenticate('discord'), async (req,res)=>{
     console.log("leaving redirection");
     //res.redirect('http://localhost:3000/menu');
-    console.log(res.cookie);
+    console.log(res.cookie.name);
     res.redirect(`${FRONTEND_URL}/menu`);
 }
 );
 
 router.get('/menu', async (req,res)=> {
     console.log(`req is ${req}`)
+    res.redirect(`${FRONTEND_URL}/menu`);
 });
 
 router.post('/tester', async (req,res)=>{
