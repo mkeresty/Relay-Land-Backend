@@ -24,6 +24,10 @@ router.get('/discord/redirect', passport.authenticate('discord'), async (req,res
 }
 );
 
+router.get('/menu', async (req,res)=> {
+    console.log(`req is ${req}`)
+});
+
 router.post('/tester', async (req,res)=>{
     //const id = req.params;
     console.log('tester');
