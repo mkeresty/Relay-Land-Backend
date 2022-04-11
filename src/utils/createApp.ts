@@ -52,7 +52,7 @@ export function createApp(): Express {
             domain: ".relayalpha.com",
             sameSite: "none",
             secure: true,
-            httpOnly: true,
+            httpOnly: false,
             maxAge: 6000 * 60 * 24 * 7,
         },
         
