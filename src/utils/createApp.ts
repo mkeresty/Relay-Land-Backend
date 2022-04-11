@@ -46,8 +46,9 @@ export function createApp(): Express {
         resave: false,
         saveUninitialized: false,
         cookie: {
-            domain: "relayalpha.com",
-            sameSite: "lax",
+            domain: ".relayalpha.com",
+            sameSite: "none",
+            httpOnly: false,
             maxAge: 6000 * 60 * 24 * 7,
         },
         
