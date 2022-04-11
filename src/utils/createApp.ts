@@ -1,7 +1,7 @@
 import { config } from 'dotenv';
 import express, { Express } from 'express';
 import cors from 'cors';
-import session from 'express-session';
+import session, { Cookie } from 'express-session';
 import passport from 'passport';
 import routes from '../routes';
 const path = require('path');
@@ -48,6 +48,7 @@ export function createApp(): Express {
         cookie: {
             maxAge: 6000 * 60 * 24 * 7,
         },
+        
         store: store.create({mongoUrl:'mongodb+srv://mkeresty:wwXuyfLz6Dqk3ZWU@mern.yxg7v.mongodb.net/discord_dashboard?retryWrites=true&w=majority'}),
     }));
 
