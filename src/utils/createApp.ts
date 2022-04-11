@@ -46,7 +46,7 @@ export function createApp(): Express {
         resave: false,
         saveUninitialized: false,
         cookie: {
-            sameSite: "none",
+            sameSite: "lax",
             maxAge: 6000 * 60 * 24 * 7,
         },
         
