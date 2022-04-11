@@ -20,28 +20,31 @@ export function createApp(): Express {
     app.use(express.json());
     app.use(express.urlencoded());
 
-    app.use((req, res, next) => {
-        res.setHeader('Access-Control-Allow-Credentials', 'true');
-        res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-        res.setHeader('Access-Control-Allow-Origin', 'https://frontend.relayalpha.com');
-        if (req.method === 'OPTIONS') {
-          return res.sendStatus(200);
-        }
-        next();
-      });
+    app.disable("X-Powered-By");
+    
+    app.set("trust proxy", 1);
 
     // enable cors
     app.use(cors({
         
-        origin: ['https://frontend.relayalpha.com','http://localhost:3000'],
+        origin: ['https://frontend.relayalpha.com','http://localhost:3000', '*'],
         credentials: true,
+        methods: "GET, POST, PUT, DELETE"
     }));
-    console.log("cors enabled");
+    app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Credentials", 'true');
+        res.header("Access-Control-Allow-Origin", "https://frontend.relayalpha.com");
+        res.header("Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-HTTP-Method-Override, Set-Cookie, Cookie");
+        res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+        next();  
+     });
 
 
 
     // enable sessions
     app.use(session({
+        name: "admin",
         secret: 'ERVHBERVIBERVWUIEVFBFWERVGBRY',
         resave: false,
         saveUninitialized: false,
