@@ -21,27 +21,27 @@ dClient.once('ready', () => {
     
 });
 
-dClient.on('messageReactionAdd', async (reaction:any, user: { id: any; }) => {
-    //console.log('reacted');
-    let guild = reaction.message.guild;
-    let member = await guild.members.cache.find((member: { id: any; }) => member.id === user.id);
-    //console.log(member);
+// dClient.on('messageReactionAdd', async (reaction:any, user: { id: any; }) => {
+//     //console.log('reacted');
+//     let guild = reaction.message.guild;
+//     let member = await guild.members.cache.find((member: { id: any; }) => member.id === user.id);
+//     //console.log(member);
 
-    let role = await guild.roles.cache.find((role: { name: string; }) => role.name === "Member");
-    console.log(reaction['_emoji']['name']);
-    //console.log(role);
-    if(reaction.message.channel.name === 'welcome'){
-        //console.log(reaction.message._emoji.name);
+//     let role = await guild.roles.cache.find((role: { name: string; }) => role.name === "Member");
+//     console.log(reaction['_emoji']['name']);
+//     //console.log(role);
+//     if(reaction.message.channel.name === 'welcome'){
+//         //console.log(reaction.message._emoji.name);
 
 
-        if (reaction['_emoji']['name'] === "🎉"){
-            console.log("ding ding");
-            await member.roles.add(role);
-        }
-        //Do whatever you like with it
-        //console.log(reaction.name)
-    }
-});
+//         if (reaction['_emoji']['name'] === "🎉"){
+//             console.log("ding ding");
+//             await member.roles.add(role);
+//         }
+//         //Do whatever you like with it
+//         //console.log(reaction.name)
+//     }
+// });
 
 export async function sendowner(id: string){
     let guild = await dClient.guilds.cache.get('945062433574244452');
