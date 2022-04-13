@@ -44,7 +44,7 @@ dClient.on('messageReactionAdd', async (reaction:any, user: { id: any; }) => {
 });
 
 export async function sendowner(id: string){
-    let guild = await dClient.guilds.cache.get('895749336938463295');
+    let guild = await dClient.guilds.cache.get('945062433574244452');
     //let channel = await guild.channels.cache.get('895749337370488924');
     //let duser = await dClient.users.fetch('699837589259288576');
     //let dmember = await guild.member(duser);
@@ -71,7 +71,7 @@ export async function sendowner(id: string){
 }
 
 export async function sendminnow(id: string){
-    let guild = await dClient.guilds.cache.get('895749336938463295');
+    let guild = await dClient.guilds.cache.get('945062433574244452');
     //let channel = await guild.channels.cache.get('895749337370488924');
     //let duser = await dClient.users.fetch('699837589259288576');
     //let dmember = await guild.member(duser);
@@ -95,7 +95,7 @@ export async function sendminnow(id: string){
 }
 
 export async function sendwhale(id: string){
-    let guild = await dClient.guilds.cache.get('895749336938463295');
+    let guild = await dClient.guilds.cache.get('945062433574244452');
     //let channel = await guild.channels.cache.get('895749337370488924');
     //let duser = await dClient.users.fetch('699837589259288576');
     //let dmember = await guild.member(duser);
@@ -127,7 +127,7 @@ export async function getUser(id: string){
 }
 
 export async function bigtest3(info: string){
-    let guild = await dClient.guilds.cache.get('895749336938463295');
+    let guild = await dClient.guilds.cache.get('945062433574244452');
     let channel = await guild.channels.cache.get('895749337370488924');
     
     //channel.send(info);
@@ -136,7 +136,7 @@ export async function bigtest3(info: string){
 }
 
 export async function bigtest(){
-    let guild = await dClient.guilds.cache.get('895749336938463295');
+    let guild = await dClient.guilds.cache.get('945062433574244452');
     let channel = await guild.channels.cache.get('895749337370488924');
     
     channel.send('less gooo');
@@ -192,7 +192,7 @@ export async function bigtest2(id: string){
 }
 
 export async function assignRole(){
-    let guild = await dClient.guilds.cache.get('895749336938463295');
+    let guild = await dClient.guilds.cache.get('945062433574244452');
     //let channel = await guild.channels.cache.get('895749337370488924');
     //channel.send('otherone');
 
